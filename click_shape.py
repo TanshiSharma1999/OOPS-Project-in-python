@@ -29,7 +29,7 @@ class Circle:
         )
 mycir=Circle(blue,(300,300),50)
 
-
+bgcolor=(255, 255, 255)
 run=True
 while run:
     for event in pygame.event.get():
@@ -39,7 +39,12 @@ while run:
             screen.fill((255, 255, 255))
             mycir.draw()
             pygame.display.flip()
-    screen.fill((154, 255, 255))
+        if event.type == pygame.MOUSEBUTTONDOWN:
+                    bgcolor=(154, 255, 255)
+                    mycir.draw()
+                    pygame.display.flip()
+                    mycir.radius+=10
+    screen.fill(bgcolor)
     mycir.draw()
     pygame.display.flip()#updates the circle and bg color on screen
     
